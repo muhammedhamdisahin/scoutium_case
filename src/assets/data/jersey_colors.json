@@ -1,0 +1,80 @@
+{
+    "jersey_colors": [
+        {
+            "name": "white",
+            "jersey_color": "#ffffff",
+            "text_color": "#000000"
+        },
+        {
+            "name": "yellow",
+            "jersey_color": "#f9ed37",
+            "text_color": "#000000"
+        },
+        {
+            "name": "yellow2",
+            "jersey_color": "#fcc02a",
+            "text_color": "#ffffff"
+        },
+        {
+            "name": "orange",
+            "jersey_color": "#f8981d",
+            "text_color": "#ffffff"
+        },
+        {
+            "name": "brown",
+            "jersey_color": "#7a5648",
+            "text_color": "#ffffff"
+        },
+        {
+            "name": "gray",
+            "jersey_color": "#999999",
+            "text_color": "#ffffff"
+        },
+        {
+            "name": "violet",
+            "jersey_color": "#913E98",
+            "text_color": "#ffffff"
+        },
+        {
+            "name": "pink",
+            "jersey_color": "#EA1A65",
+            "text_color": "#ffffff"
+        },
+        {
+            "name": "red",
+            "jersey_color": "#f04438",
+            "text_color": "#ffffff"
+        },
+        {
+            "name": "green",
+            "jersey_color": "#1c6031",
+            "text_color": "#ffffff"
+        },
+        {
+            "name": "black",
+            "jersey_color": "#000000",
+            "text_color": "#ffffff"
+        },
+        {
+            "name": "blue",
+            "jersey_color": "#15499f",
+            "text_color": "#ffffff"
+        },
+        {
+            "name": "blue2",
+            "jersey_color": "#478ecc",
+            "text_color": "#ffffff"
+        },
+        {
+            "name": "cyan",
+            "jersey_color": "#1BBDD4",
+            "text_color": "#fffff"
+        },
+        {
+            "name": "green2",
+            "jersey_color": "#8AC44B",
+            "text_color": "#ffffff",
+            "stroke_color": "#ffffff"
+        }
+    ]
+}

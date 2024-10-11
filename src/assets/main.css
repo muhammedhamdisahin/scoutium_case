@@ -1,0 +1,10 @@
+@import './base.css';
+
+@font-face {
+  font-family: "UI/01. 14 Semi Bold";
+  src: url('fonts/segoe-ui-semibold.ttf');
+}
+
+body {
+  font-family: 'UI/01. 14 Semi Bold';
+}

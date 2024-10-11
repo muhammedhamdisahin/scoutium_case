@@ -1,0 +1,75 @@
+{
+    "match": {
+        "id": 68264,
+        "match_status": "full_time",
+        "away_scored": 0,
+        "away_team": {
+            "id": 60121,
+            "name": "u17",
+            "display_name": "Ems Yap\u0131 Sivasspor u17",
+            "type": "u17",
+            "club": {
+                "id": 4042,
+                "name": "Ems Yap\u0131 Sivasspor",
+                "image_url": "https:\/\/staging.cdn.scoutium.com\/images\/clubs\/1627644834.png"
+            },
+            "academy": null,
+            "league": {
+                "id": 3460,
+                "name": "Elit U17 4. Grup",
+                "image_url": "https:\/\/staging.cdn.scoutium.com\/assets\/images\/default_club.png",
+                "rank": 6
+            }
+        },
+        "away_team_scored": 0,
+        "home_scored": 4,
+        "home_team": {
+            "id": 59991,
+            "name": "u17",
+            "display_name": "Be\u015fikta\u015f A.\u015f. u17",
+            "type": "u17",
+            "club": {
+                "id": 4029,
+                "name": "Be\u015fikta\u015f A.\u015f.",
+                "image_url": "https:\/\/staging.cdn.scoutium.com\/images\/clubs\/1644927062.png"
+            },
+            "academy": null,
+            "league": {
+                "id": 372,
+                "name": "Elit U17 2. Grup",
+                "image_url": "https:\/\/staging.cdn.scoutium.com\/assets\/images\/default_club.png",
+                "rank": 6
+            }
+        },
+        "home_team_scored": 4,
+        "match_time": "2023-11-04 11:00:00",
+        "meta": {
+            "display_status": "not_recordable",
+            "drop_available": false,
+            "tff_link": null,
+            "analysis_service_id": null,
+            "is_bought": false,
+            "ready_status": "ready",
+            "report_completion_time": 72
+        },
+        "stadium": {
+            "id": 49,
+            "name": "Beyo\u011flu Stad\u0131",
+            "eligibility_for_recording": "admin_restricted",
+            "city": {
+                "id": 3703,
+                "name": "\u0130stanbul",
+                "country": {
+                    "id": 233,
+                    "name": "T\u00fcrkiye",
+                    "flag_url": "https:\/\/staging.cdn.scoutium.com\/images\/countries\/1528709963.png",
+                    "federation_logo_url": "https:\/\/staging.cdn.scoutium.com\/images\/countries\/1657311791.svg"
+                },
+                "region": {
+                    "id": 1,
+                    "name": "\u0130stanbul"
+                }
+            }
+        }
+    }
+}
