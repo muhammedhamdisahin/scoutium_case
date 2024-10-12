@@ -1,23 +1,26 @@
 <script setup>
 import { usePlayerStore } from "@/stores/PlayerStore";
+import { storeToRefs } from "pinia";
 import Dragable from "./icons/Dragable.vue";
 
 const playerStore = usePlayerStore();
+const { getFilterPlayers } = storeToRefs(playerStore)
 
 const userDragHandler = (event,item) =>{
 	event.dataTransfer.effectAllowed = "move";
-	event.dataTransfer.setData("playerID",item)
-
+  event.dataTransfer.setData("playerID", item)
 };
+
 </script>
 
 <template>
   <div class="users">
     <div
-      class="user"
-      v-for="(user, index) in playerStore.players"
-      draggable="true"
+      class="user custom-cursor"
+      v-for="(user, index) in getFilterPlayers"
       @dragstart="userDragHandler($event,user.player.id)"
+      draggable="true"
+      @dragover.prevent
     >
       <div class="userLeftTab">
         <div class="arrangement">
@@ -50,7 +53,6 @@ const userDragHandler = (event,item) =>{
 }
 .user:hover {
   background-color: #f7f7f7;
-  cursor:pointer;
 }
 
 .userLeftTab {

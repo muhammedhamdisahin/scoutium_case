@@ -1,558 +1,40 @@
 import type { Player } from "@/types/UserList";
 import { defineStore } from "pinia";
-
+import players from "@/assets/data/players.json";
 interface State {
   players: Player[];
   selectFormation: string;
   selectColor: string;
+  roster: Array<{ positionID: number; playerID: number }>;
+  isSubmit: boolean;
 }
 
 export const usePlayerStore = defineStore("playerStore", {
   state: (): State => ({
-    players: [
-      {
-        jersey_number: 1,
-        player: {
-          id: 288555,
-          firstname: "Bilal Buğra",
-          lastname: "Genç",
-          display_name: "Bilal Buğra Genç",
-          image_url: "https://cdn.scoutium.com/assets/images/default_player_male.png",
-          rating_score: null,
-          birthdate: "2008-04-10",
-          birthyear: 2008,
-          age: 15,
-          foot: "right",
-          position: {
-            id: 1,
-            key: "gk",
-            name: "Kaleci",
-            abrv: "K",
-            base_name: "Kaleci",
-            base_abrv: "K",
-            rank: 5,
-            is_main: true,
-          },
-          positions: [
-            {
-              id: 1,
-              key: "gk",
-              name: "Kaleci",
-              abrv: "K",
-              base_name: "Kaleci",
-              base_abrv: "K",
-              rank: 5,
-              is_main: true,
-            },
-          ],
-        },
-        position: {
-          id: 1,
-          key: "gk",
-          name: "Kaleci",
-          abrv: "K",
-          base_name: "Kaleci",
-          base_abrv: "K",
-          rank: null,
-          is_main: null,
-        },
-        radar_chart: null,
-      },
-      {
-        jersey_number: 22,
-        player: {
-          id: 472260,
-          firstname: "Cumali",
-          lastname: "Gürsel",
-          display_name: "Cumali Gürsel",
-          image_url: "https://cdn.scoutium.com/assets/images/default_player_male.png",
-          rating_score: null,
-          birthdate: "2007-07-09",
-          birthyear: 2007,
-          age: 16,
-          foot: "left",
-          position: {
-            id: 6,
-            key: "m",
-            name: "Merkez Orta Saha",
-            abrv: "OS",
-            base_name: "Merkez Orta Saha",
-            base_abrv: "OS",
-            rank: 5,
-            is_main: true,
-          },
-          positions: [
-            {
-              id: 6,
-              key: "m",
-              name: "Merkez Orta Saha",
-              abrv: "OS",
-              base_name: "Merkez Orta Saha",
-              base_abrv: "OS",
-              rank: 5,
-              is_main: true,
-            },
-          ],
-        },
-        position: {
-          id: 2,
-          key: "cd",
-          name: "Stoper",
-          abrv: "STP",
-          base_name: "Stoper",
-          base_abrv: "STP",
-          rank: null,
-          is_main: null,
-        },
-        radar_chart: null,
-      },
-      {
-        jersey_number: 4,
-        player: {
-          id: 133509,
-          firstname: "Mustafa Azem",
-          lastname: "Yortaç",
-          display_name: "Mustafa Azem Yortaç",
-          image_url: "https://cdn.scoutium.com/images/players/1685998240.jpeg",
-          rating_score: null,
-          birthdate: "2008-03-01",
-          birthyear: 2008,
-          age: 15,
-          foot: "right",
-          position: {
-            id: 2,
-            key: "cd",
-            name: "Stoper",
-            abrv: "STP",
-            base_name: "Stoper",
-            base_abrv: "STP",
-            rank: 5,
-            is_main: true,
-          },
-          positions: [
-            {
-              id: 2,
-              key: "cd",
-              name: "Stoper",
-              abrv: "STP",
-              base_name: "Stoper",
-              base_abrv: "STP",
-              rank: 5,
-              is_main: true,
-            },
-          ],
-        },
-        position: {
-          id: 2,
-          key: "cd",
-          name: "Stoper",
-          abrv: "STP",
-          base_name: "Stoper",
-          base_abrv: "STP",
-          rank: null,
-          is_main: null,
-        },
-        radar_chart: null,
-      },
-      {
-        jersey_number: 2,
-        player: {
-          id: 714214,
-          firstname: "Asım Efe",
-          lastname: "Işık",
-          display_name: "Asım Efe Işık",
-          image_url: "https://cdn.scoutium.com/assets/images/default_player_male.png",
-          rating_score: null,
-          birthdate: "2007-09-06",
-          birthyear: 2007,
-          age: 16,
-          foot: "right",
-          position: {
-            id: 2,
-            key: "cd",
-            name: "Stoper",
-            abrv: "STP",
-            base_name: "Stoper",
-            base_abrv: "STP",
-            rank: 5,
-            is_main: true,
-          },
-          positions: [
-            {
-              id: 2,
-              key: "cd",
-              name: "Stoper",
-              abrv: "STP",
-              base_name: "Stoper",
-              base_abrv: "STP",
-              rank: 5,
-              is_main: true,
-            },
-          ],
-        },
-        position: {
-          id: 3,
-          key: "rb",
-          name: "Sağ Bek",
-          abrv: "SaB",
-          base_name: "Sağ Bek",
-          base_abrv: "SaB",
-          rank: null,
-          is_main: null,
-        },
-        radar_chart: null,
-      },
-      {
-        jersey_number: 3,
-        out_minute: 88,
-        player: {
-          id: 133473,
-          firstname: "Berk Metin",
-          lastname: "Erdoğan",
-          display_name: "Berk Metin Erdoğan",
-          image_url: "https://cdn.scoutium.com/images/players/1693489565.jpeg",
-          rating_score: null,
-          birthdate: "2007-10-09",
-          birthyear: 2007,
-          age: 16,
-          foot: "left",
-          position: {
-            id: 4,
-            key: "lb",
-            name: "Sol Bek",
-            abrv: "SoB",
-            base_name: "Sol Bek",
-            base_abrv: "SoB",
-            rank: 5,
-            is_main: true,
-          },
-          positions: [
-            {
-              id: 4,
-              key: "lb",
-              name: "Sol Bek",
-              abrv: "SoB",
-              base_name: "Sol Bek",
-              base_abrv: "SoB",
-              rank: 5,
-              is_main: true,
-            },
-          ],
-        },
-        position: {
-          id: 4,
-          key: "lb",
-          name: "Sol Bek",
-          abrv: "SoB",
-          base_name: "Sol Bek",
-          base_abrv: "SoB",
-          rank: null,
-          is_main: null,
-        },
-        radar_chart: null,
-      },
-      {
-        jersey_number: 6,
-        player: {
-          id: 133492,
-          firstname: "Furkan",
-          lastname: "Çiftçi",
-          display_name: "Furkan Çiftçi",
-          image_url: "https://cdn.scoutium.com/assets/images/default_player_male.png",
-          rating_score: null,
-          birthdate: "2008-06-07",
-          birthyear: 2008,
-          age: 15,
-          foot: "both",
-          position: {
-            id: 6,
-            key: "m",
-            name: "Merkez Orta Saha",
-            abrv: "OS",
-            base_name: "Merkez Orta Saha",
-            base_abrv: "OS",
-            rank: 5,
-            is_main: true,
-          },
-          positions: [
-            {
-              id: 6,
-              key: "m",
-              name: "Merkez Orta Saha",
-              abrv: "OS",
-              base_name: "Merkez Orta Saha",
-              base_abrv: "OS",
-              rank: 5,
-              is_main: true,
-            },
-          ],
-        },
-        position: {
-          id: 5,
-          key: "dm",
-          name: "Defansif Orta Saha",
-          abrv: "DOS",
-          base_name: "Defansif Orta Saha",
-          base_abrv: "DOS",
-          rank: null,
-          is_main: null,
-        },
-        radar_chart: null,
-      },
-      {
-        jersey_number: 10,
-        player: {
-          id: 238911,
-          firstname: "Enes",
-          lastname: "Çinemre",
-          display_name: "Enes Çinemre",
-          image_url: "https://cdn.scoutium.com/assets/images/default_player_male.png",
-          rating_score: null,
-          birthdate: "2007-07-23",
-          birthyear: 2007,
-          age: 16,
-          foot: "right",
-          position: {
-            id: 6,
-            key: "m",
-            name: "Merkez Orta Saha",
-            abrv: "OS",
-            base_name: "Merkez Orta Saha",
-            base_abrv: "OS",
-            rank: 5,
-            is_main: true,
-          },
-          positions: [
-            {
-              id: 6,
-              key: "m",
-              name: "Merkez Orta Saha",
-              abrv: "OS",
-              base_name: "Merkez Orta Saha",
-              base_abrv: "OS",
-              rank: 5,
-              is_main: true,
-            },
-          ],
-        },
-        position: {
-          id: 6,
-          key: "m",
-          name: "Merkez Orta Saha",
-          abrv: "OS",
-          base_name: "Merkez Orta Saha",
-          base_abrv: "OS",
-          rank: null,
-          is_main: null,
-        },
-        radar_chart: null,
-      },
-      {
-        jersey_number: 17,
-        out_minute: 58,
-        player: {
-          id: 282018,
-          firstname: "Ozan",
-          lastname: "Sevim",
-          display_name: "Ozan Sevim",
-          image_url: "https://cdn.scoutium.com/assets/images/default_player_male.png",
-          rating_score: null,
-          birthdate: "2007-01-24",
-          birthyear: 2007,
-          age: 16,
-          foot: "right",
-          position: {
-            id: 7,
-            key: "rw",
-            name: "Sağ Kanat",
-            abrv: "SaK",
-            base_name: "Sağ Kanat",
-            base_abrv: "SaK",
-            rank: 5,
-            is_main: true,
-          },
-          positions: [
-            {
-              id: 7,
-              key: "rw",
-              name: "Sağ Kanat",
-              abrv: "SaK",
-              base_name: "Sağ Kanat",
-              base_abrv: "SaK",
-              rank: 5,
-              is_main: true,
-            },
-          ],
-        },
-        position: {
-          id: 6,
-          key: "m",
-          name: "Merkez Orta Saha",
-          abrv: "OS",
-          base_name: "Merkez Orta Saha",
-          base_abrv: "OS",
-          rank: null,
-          is_main: null,
-        },
-        radar_chart: null,
-      },
-      {
-        jersey_number: 18,
-        out_minute: 69,
-        player: {
-          id: 131376,
-          firstname: "Kerem",
-          lastname: "Katranlı",
-          display_name: "Kerem Katranlı",
-          image_url: "https://cdn.scoutium.com/assets/images/default_player_male.png",
-          rating_score: null,
-          birthdate: "2007-01-24",
-          birthyear: 2007,
-          age: 16,
-          foot: "right",
-          position: {
-            id: 10,
-            key: "f",
-            name: "Santrfor",
-            abrv: "F",
-            base_name: "Santrfor",
-            base_abrv: "F",
-            rank: 5,
-            is_main: true,
-          },
-          positions: [
-            {
-              id: 10,
-              key: "f",
-              name: "Santrfor",
-              abrv: "F",
-              base_name: "Santrfor",
-              base_abrv: "F",
-              rank: 5,
-              is_main: true,
-            },
-          ],
-        },
-        position: {
-          id: 7,
-          key: "rw",
-          name: "Sağ Kanat",
-          abrv: "SaK",
-          base_name: "Sağ Kanat",
-          base_abrv: "SaK",
-          rank: null,
-          is_main: null,
-        },
-        radar_chart: null,
-      },
-      {
-        jersey_number: 7,
-        out_minute: 58,
-        player: {
-          id: 133483,
-          firstname: "Kartal",
-          lastname: "Cengizer",
-          display_name: "Kartal Cengizer",
-          image_url: "https://cdn.scoutium.com/assets/images/default_player_male.png",
-          rating_score: null,
-          birthdate: "2007-03-16",
-          birthyear: 2007,
-          age: 16,
-          foot: "left",
-          position: {
-            id: 7,
-            key: "rw",
-            name: "Sağ Kanat",
-            abrv: "SaK",
-            base_name: "Sağ Kanat",
-            base_abrv: "SaK",
-            rank: 5,
-            is_main: true,
-          },
-          positions: [
-            {
-              id: 7,
-              key: "rw",
-              name: "Sağ Kanat",
-              abrv: "SaK",
-              base_name: "Sağ Kanat",
-              base_abrv: "SaK",
-              rank: 5,
-              is_main: true,
-            },
-          ],
-        },
-        position: {
-          id: 8,
-          key: "lw",
-          name: "Sol Kanat",
-          abrv: "SoK",
-          base_name: "Sol Kanat",
-          base_abrv: "SoK",
-          rank: null,
-          is_main: null,
-        },
-        radar_chart: null,
-      },
-      {
-        jersey_number: 11,
-        out_minute: 88,
-        player: {
-          id: 131278,
-          firstname: "Ahmet Sami",
-          lastname: "Bircan",
-          display_name: "Ahmet Sami Bircan",
-          image_url: "https://cdn.scoutium.com/assets/images/default_player_male.png",
-          rating_score: null,
-          birthdate: "2007-01-24",
-          birthyear: 2007,
-          age: 16,
-          foot: "right",
-          position: {
-            id: 10,
-            key: "f",
-            name: "Santrfor",
-            abrv: "F",
-            base_name: "Santrfor",
-            base_abrv: "F",
-            rank: 5,
-            is_main: true,
-          },
-          positions: [
-            {
-              id: 10,
-              key: "f",
-              name: "Santrfor",
-              abrv: "F",
-              base_name: "Santrfor",
-              base_abrv: "F",
-              rank: 5,
-              is_main: true,
-            },
-          ],
-        },
-        position: {
-          id: 10,
-          key: "f",
-          name: "Santrfor",
-          abrv: "F",
-          base_name: "Santrfor",
-          base_abrv: "F",
-          rank: null,
-          is_main: null,
-        },
-        radar_chart: null,
-      },
-    ],
+    players: players.players,
     selectFormation: "",
     selectColor: "",
+    roster: [],
+    isSubmit: false,
   }),
   getters: {
+    getIsSubmit(state) {
+      return state.isSubmit;
+    },
     getSelectFormation(state) {
       return state.selectFormation;
     },
     getSelectColor(state) {
       return state.selectColor;
+    },
+    getRoster(state) {
+      return state.roster;
+    },
+    getFilterPlayers(state) {
+      return state.players.filter((player) => {
+        const result = state.roster.filter((item) => item.playerID === player.player.id);
+        return result.length === 0;
+      });
     },
   },
   actions: {
@@ -561,11 +43,48 @@ export const usePlayerStore = defineStore("playerStore", {
     },
     setFormation(formation: string) {
       this.selectFormation = formation;
-      return;
     },
     setColor(color: string) {
       this.selectColor = color;
-      return;
+    },
+    setRoster({ positionID, playerID }: { positionID: number; playerID: number }, action: "add" | "remove" = "add") {
+      const existingPlayerIndex = this.roster.findIndex((item) => item.playerID === playerID);
+      const existingPositionIndex = this.roster.findIndex((item) => item.positionID === positionID);
+
+      const newHerePlayer = this.roster[existingPlayerIndex];
+      const justHerePlayer = this.roster[existingPositionIndex];
+
+      if (action === "add") {
+        if (existingPlayerIndex === -1 && existingPositionIndex === -1) {
+          // Yeni ekledi
+          this.roster.push({ positionID, playerID });
+        } else if (existingPlayerIndex !== -1) {
+          // Oyuncu zaten var, pozisyonunu güncelledi
+          if (existingPositionIndex === -1) {
+            newHerePlayer.positionID = positionID; // Boş yere geçti
+          } else {
+            // Yer değiştirdi
+
+            this.roster[existingPlayerIndex] = {
+              positionID: justHerePlayer.positionID,
+              playerID: newHerePlayer.playerID,
+            };
+            this.roster[existingPositionIndex] = {
+              positionID: newHerePlayer.positionID,
+              playerID: justHerePlayer.playerID,
+            };
+          }
+        } else if (existingPositionIndex !== -1) {
+          // Listeden üstüne koydu
+          this.roster = this.roster.filter((item) => item.playerID !== justHerePlayer.playerID);
+          this.roster.push({ positionID, playerID });
+        }
+      } else if (action === "remove") {
+        this.roster = this.roster.filter((item) => item.playerID !== playerID);
+      }
+    },
+    setIsSubmit() {
+      this.isSubmit = !this.isSubmit;
     },
   },
 });

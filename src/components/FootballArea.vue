@@ -1,107 +1,62 @@
 <script setup lang="ts">
 import formations from "@/assets/data/formations.json";
-import jersey_colors from "@/assets/data/jersey_colors.json";
 import { usePlayerStore } from "@/stores/PlayerStore";
-import { ref } from "vue";
+import type { Player } from "@/types/UserList";
+import { computed } from "vue";
 import Area from "./icons/Area.vue";
-import Sakaryaspor from "./icons/Sakaryaspor.vue";
-import Turgutluspor from "./icons/Turgutluspor.vue";
-import SelectBox from "./SelectBox.vue";
+import PositionEmpty from "./icons/PositionEmpty.vue";
+import PositionFilled from "./icons/PositionFilled.vue";
 
 const playerStore = usePlayerStore();
-const options = formations.formation_templates.map((item) => item.name);
-const colors = jersey_colors.jersey_colors.map((color) => color.jersey_color);
 
-const dropHandler = (event: DragEvent) => {
+const selectedFormation = computed(() =>
+  formations.formation_templates.find(
+    (form) => form.name === playerStore.getSelectFormation
+  )
+);
+
+const getPositionPlayer = (positionID: number) => {
+  const roster = playerStore.getRoster;
+  const player = roster.find((item) => item.positionID === positionID);
+  if (player) return playerStore.getPlayer(player.playerID);
+  else return false;
+};
+
+const dropHandler =  (event: DragEvent,positionID: number) => {
   const playerID = event.dataTransfer?.getData("playerID");
-  const dropPlayer = ref(playerStore.getPlayer(Number(playerID)));
-  console.log(dropPlayer);
+  if (playerID) {
+    playerStore.setRoster({ positionID: positionID, playerID: Number(playerID) });
+  }
 };
 
-const selectFormation = (name: string) => {
-  playerStore.setFormation(name);
-};
-
-const selectColor = (color: string) => {
-  playerStore.setColor(color);
-};
 </script>
 
 <template>
   <div>
-    <div class="teamHeaderContainer">
-      <div class="teamContainer">
-        <Sakaryaspor />
-        <div>Sakaryaspor</div>
-      </div>
-      <div class="skorBox">
-        <span class="skorText"> 4 : 3 </span>
-      </div>
-      <div class="teamContainer">
-        <div>Turgutluspor</div>
-        <Turgutluspor />
-      </div>
-    </div>
     <div class="areaContainer">
-      <div class="selectContainer">
-        <SelectBox option-type="formation" :options="options" :selected="selectFormation" />
-        <div>
-          <SelectBox option-type="color" :options="colors" :selected="selectColor" />
-        </div>
-      </div>
       <Area alt="area" />
+      <div
+        class="position"
+        v-for="position in selectedFormation?.positions"
+        :key="position.id"
+        :style="{ right: position.x * 100 - 11 + '%', top: position.y * 100 - 2 + '%' }"
+        @dragover.prevent
+        @drop="dropHandler($event,position.id)"
+      >
+        <PositionEmpty v-if="!getPositionPlayer(position.id)" />
+        <PositionFilled v-if="!!getPositionPlayer(position.id)" :player="(getPositionPlayer(position.id) as Player)" />
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped>
+.areaContainer > .position {
+  position: absolute;
+}
+
 .areaContainer {
   position: relative;
-}
-
-.selectContainer {
-  position: absolute;
   display: flex;
-  width: 95%;
-  justify-content: space-between;
-  padding: 8px;
-}
-
-.skorBox {
-  background: #fafbfc;
-  border: 1px solid #f4f5f7;
-  border-radius: 30px;
-}
-
-.skorText {
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 24px;
-  letter-spacing: -0.006em;
-  text-align: center;
-  padding: 6px;
-  color: #344563;
-}
-
-.teamHeaderContainer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.teamContainer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px 0;
-}
-
-.teamContainer > :not(:last-child) {
-  padding-right: 4px;
 }
 </style>

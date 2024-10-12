@@ -3,6 +3,54 @@
     {
       "jersey_number": 1,
       "player": {
+        "id": 1,
+        "firstname": "Muhammed Hamdi",
+        "lastname": "ŞAHİN",
+        "display_name": "Muhammed Hamdi ŞAHİN",
+        "image_url": "https://cdn.scoutium.com/assets/images/default_player_male.png",
+        "rating_score": null,
+        "birthdate": "2008-04-10",
+        "birthyear": 1999,
+        "age": 26,
+        "foot": "right",
+        "position": {
+          "id": 1,
+          "key": "gk",
+          "name": "Her Yerde Oynar",
+          "abrv": "K",
+          "base_name": "Her Yerde Oynar",
+          "base_abrv": "K",
+          "rank": 5,
+          "is_main": true
+        },
+        "positions": [
+          {
+            "id": 1,
+            "key": "gk",
+            "name": "Her Yerde Oynar",
+            "abrv": "K",
+            "base_name": "Her Yerde Oynar",
+            "base_abrv": "K",
+            "rank": 5,
+            "is_main": true
+          }
+        ]
+      },
+      "position": {
+        "id": 1,
+        "key": "gk",
+        "name": "Her Yerde Oynar",
+        "abrv": "K",
+        "base_name": "Her Yerde Oynar",
+        "base_abrv": "K",
+        "rank": null,
+        "is_main": null
+      },
+      "radar_chart": null
+    },
+    {
+      "jersey_number": 1,
+      "player": {
         "id": 288555,
         "firstname": "Bilal Buğra",
         "lastname": "Genç",

@@ -8,3 +8,7 @@
 body {
   font-family: 'UI/01. 14 Semi Bold';
 }
+
+.custom-cursor {
+  cursor: url("pointer.svg") 0 0, auto;
+}

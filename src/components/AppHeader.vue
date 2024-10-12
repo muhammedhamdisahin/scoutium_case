@@ -1,16 +1,34 @@
 <script setup lang="ts">
+import { usePlayerStore } from "@/stores/PlayerStore";
 import Scoutium from "./icons/Scoutium.vue";
+import Button from "./Button.vue";
+import { computed } from "vue";
+
+const playerStore = usePlayerStore();
+
+const submitFormation = () => {
+  playerStore.setIsSubmit()
+}
+
+const disabledController = computed(() => {
+  const color = playerStore.getSelectColor
+  const status = playerStore.getRoster.length === 11 && color !== "";
+  return !status;
+})
+
 </script>
 
 <template>
   <header>
     <Scoutium />
-
-    <button>
-      <span class="buttonText">
-        Gönder
+    <Button
+      class="custom-cursor"
+      @click="submitFormation" 
+      :disabled="disabledController">
+      <span class="buttonText" >
+        {{playerStore.isSubmit ? "Geri Al" : "Gönder"}}
       </span>
-    </button>
+    </Button>
   </header>
 </template>
 
@@ -35,7 +53,6 @@ button {
   border-radius: 6px;
   opacity: 0.5px;
   border: 0;
-  cursor: pointer;
 }
 
 button:hover{
