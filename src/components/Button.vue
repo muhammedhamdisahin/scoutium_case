@@ -23,7 +23,7 @@ const handleClick = () => {
 	  @click="handleClick" 
 	  :disabled="disabled"
 	>
-	  <slot>Button</slot>
+	  <slot></slot>
 	</button>
 </template>
   

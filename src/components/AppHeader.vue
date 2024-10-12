@@ -42,7 +42,8 @@ header {
   top: 0;
   width: 100%;
   height: min-content;
-  padding: 16px 16px;
+  padding: 16px;
+  box-sizing: border-box;
 }
 
 button {

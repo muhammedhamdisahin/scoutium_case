@@ -6,8 +6,8 @@ import Dragable from "./icons/Dragable.vue";
 const playerStore = usePlayerStore();
 const { getFilterPlayers } = storeToRefs(playerStore)
 
-const userDragHandler = (event,item) =>{
-	event.dataTransfer.effectAllowed = "move";
+const userDragHandler = (event, item) => {
+  event.dataTransfer.effectAllowed = "move";
   event.dataTransfer.setData("playerID", item)
 };
 
@@ -15,13 +15,8 @@ const userDragHandler = (event,item) =>{
 
 <template>
   <div class="users">
-    <div
-      class="user custom-cursor"
-      v-for="(user, index) in getFilterPlayers"
-      @dragstart="userDragHandler($event,user.player.id)"
-      draggable="true"
-      @dragover.prevent
-    >
+    <div class="user custom-cursor" v-for="(user, index) in getFilterPlayers"
+      @dragstart="userDragHandler($event, user.player.id)" draggable="true" @dragover.prevent>
       <div class="userLeftTab">
         <div class="arrangement">
           {{ index + 1 }}
@@ -41,7 +36,8 @@ const userDragHandler = (event,item) =>{
 .users {
   transform: translate(16px, 70px);
 }
-.users > :not(:last-child) {
+
+.users> :not(:last-child) {
   margin-bottom: 8px;
 }
 
@@ -51,6 +47,7 @@ const userDragHandler = (event,item) =>{
   justify-content: space-between;
   min-width: 252px;
 }
+
 .user:hover {
   background-color: #f7f7f7;
 }
@@ -74,5 +71,6 @@ const userDragHandler = (event,item) =>{
   line-height: 24px;
   letter-spacing: -0.006em;
   text-align: left;
+  color: #344563;
 }
 </style>
